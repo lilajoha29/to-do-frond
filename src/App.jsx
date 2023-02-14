@@ -1,34 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import todos from "./apis";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Form from "./components/Form";
+import Section from "./components/Section";
+import List from "./components/List";
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+const appTitle = "To-Do App";
 
-export default App
+const App = () => {
+    const [todoList, setTodoList] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const { data } = await todos.get("/todos");
+            setTodoList(data);
+        }
+
+        fetchData();
+    }, []);
+
+    const addTodo = async (item) => {
+        const { data } = await todos.post("/todos", item);
+        setTodoList((oldList) => [...oldList, data]);
+    };
+
+    const removeTodo = async (id) => {
+        await todos.delete(`/todos/${id}`);
+        setTodoList((oldList) => oldList.filter((item) => item._id !== id));
+    };
+
+    const editTodo = async (id, item) => {
+        await todos.put(`/todos/${id}`, item);
+    };
+
+    return (
+        <div className="ui container center aligned">
+            <Section>
+                <h1>{appTitle}</h1>
+            </Section>
+
+            <Section>
+                <Form addTodo={addTodo} />
+            </Section>
+
+            <Section>
+                <List
+                    editTodoListProp={editTodo}
+                    removeTodoListProp={removeTodo}
+                    list={todoList}
+                />
+            </Section>
+        </div>
+    );
+};
+
+export default App;
