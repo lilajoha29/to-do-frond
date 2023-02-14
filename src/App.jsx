@@ -5,7 +5,7 @@ import Form from "./components/Form";
 import Section from "./components/Section";
 import List from "./components/List";
 
-const appTitle = "To-Do App";
+const appTitle = "Your list";
 
 const App = () => {
     const [todoList, setTodoList] = useState([]);
