@@ -36,7 +36,7 @@ const App = () => {
     return (
         <div className="ui container center aligned">
             <Section>
-                <h1 className="font-Poppins text-5xl">{appTitle}</h1>
+                <h1 className="font-Poppins text-5xl text-center">{appTitle}</h1>
             </Section>
 
             <Section>
