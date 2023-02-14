@@ -49,12 +49,16 @@ https://proyectxxxxxxxxxxxxxxxxxxxx
 
 The tools that were used to create this project are:
 
- - [Mongo Atlas] - Used to store the information of the database.
- - [React.Js] - Used for the content of the page that the user will observe.
+### Frontend 
+ - [React.Js] : Used for the content of the page that the user will observe.
  
- ### Framework
- 
- - Tailwind
+ - Framework
+  Tailwind
+  
+### Backend
+- [Mongo Atlas] - Used to store the information of the database.
+- Express
+- Node
  
 ## Note
 This app is aimed to be for testing only and is NOT meant to be deployed to production. It lacks request validation, security checks, error handlers and a lot more.
