@@ -54,7 +54,7 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
                         <h2 className={"ui header" + (completedState ? " green" : "")}>{value}</h2>
                     </div>
 
-                    <div className="column one wide">
+                    <div className="column one wide">npm
                         <button
                             className={"ui button circular icon" + (completedState ? " blue" : " green")}
                             onClick={handleButtonClick}
