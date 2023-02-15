@@ -3,9 +3,9 @@ import todos from "./apis";
 
 import Form from "./components/Form";
 import Section from "./components/Section";
-import List from "./components/List";
+import List from "./components/List"
 
-const appTitle = "To-Do App";
+const appTitle = "Your list";
 
 const App = () => {
     const [todoList, setTodoList] = useState([]);
@@ -36,20 +36,20 @@ const App = () => {
     return (
         <div className="ui container center aligned">
             <Section>
-                <h1>{appTitle}</h1>
+                <h1 className="font-Poppins text-5xl text-center">{appTitle}</h1>
             </Section>
 
             <Section>
                 <Form addTodo={addTodo} />
             </Section>
 
-            <Section>
+            <div>
                 <List
                     editTodoListProp={editTodo}
                     removeTodoListProp={removeTodo}
                     list={todoList}
                 />
-            </Section>
+            </div>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {AiFillPlusCircle} from "react-icons/ai"
 
 const Form = ({ addTodo }) => {
     const [inputValue, setInputValue] = useState("");
@@ -17,20 +18,23 @@ const Form = ({ addTodo }) => {
     };
     
     return (
-        <form className="ui form" onSubmit={handleFormSubmit}>
-            <div className="ui grid center aligned">
-                <div className="row">
-                    <div className="column five wide">
-                        <input
+        <form className="ui form " onSubmit={handleFormSubmit}>
+            <div className="flex justify-center">
+                <div className="flex flex-row">
+                    <div>
+                        <input className="p-2 border-3 border-black rounded-3xl w-44 font-Dosis drop-shadow-3xl sm:w-52 lg:w-96"
                             value={inputValue}
                             onChange={handleInputChange}
                             type="text"
-                            placeholder="Enter something to do..."
+                            placeholder="Agregar tareas ..."
+                            
                         />
                     </div>
                     
-                    <div className="column one wide">
-                        <button type="submit" className="ui button circular icon green"><i className="white plus icon"></i></button>
+                    <div className="pl-2">
+                        <button type="submit" className="ui button circular icon green">
+                        <AiFillPlusCircle className="text-4xl text-[#44B648] hover:text-[#101432]"/>
+                        <i className="white plus icon"></i></button>
                     </div>
                 </div>
             </div>

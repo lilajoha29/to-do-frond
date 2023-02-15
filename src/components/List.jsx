@@ -14,7 +14,7 @@ const List = ({ list, removeTodoListProp, editTodoListProp }) => {
         )
     );
     return (
-        <div className="ui grid center aligned">
+        <div className="lg:grid grid-cols-3">
             {renderedList}
         </div>
     );
