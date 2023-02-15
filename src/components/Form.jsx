@@ -22,11 +22,11 @@ const Form = ({ addTodo }) => {
             <div className="flex justify-center">
                 <div className="flex flex-row">
                     <div>
-                        <input className="p-2 border-3 border-black rounded-3xl w-96 font-Dosis drop-shadow-3xl"
+                        <input className="p-2 border-3 border-black rounded-3xl w-44 font-Dosis drop-shadow-3xl sm:w-52 lg:w-96"
                             value={inputValue}
                             onChange={handleInputChange}
                             type="text"
-                            placeholder="Enter something to do..."
+                            placeholder="Agregar tareas ..."
                             
                         />
                     </div>
