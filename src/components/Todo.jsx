@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { BsFillCheckCircleFill } from "react-icons/bs"
+import { GoTrashcan } from "react-icons/go";
 
 const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -13,11 +15,11 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
     const handleInputKeyDown = (e) => {
         const key = e.keyCode;
 
-        if(key === 13) {
+        if (key === 13) {
             editTodoItemProp({ title: tempValue });
             setValue(tempValue);
             setIsEditing(false);
-        } else if(key === 27) {
+        } else if (key === 27) {
             setTempValue(value);
             setIsEditing(false);
         }
@@ -36,42 +38,44 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
     };
 
     return (
-        <div className="row">
+        <div className="flex flex-row relative justify-center bg-[#f2a53a5e] m-auto items-center mb-3 w-60 rounded-3xl border-2 border-[#101432]">
+
+            <div className="py-3">
+                <button className=" relative bottom-5 right-5">
+                    <BsFillCheckCircleFill className={"text-3xl " + (completedState ? "text-green-500" : " text-blue-800")}
+                        onClick={handleButtonClick} />
+                    {/* <i className="white check icon"></i> */}
+                </button>
+            </div>
+
+
             {
-            isEditing ?
-                <div className="column seven wide">
-                    <div className="ui input fluid">
-                        <input
-                            onChange={handleInputOnChange}
-                            onKeyDown={handleInputKeyDown}
-                            autoFocus={true}
-                            value={tempValue}
-                        />
-                    </div>
-                </div> :
-                <>
-                    <div className="column five wide" onDoubleClick={handleDivDoubleClick}>
-                        <h2 className={"ui header" + (completedState ? " green" : "")}>{value}</h2>
-                    </div>
+                isEditing ?
+                    <div className="bg-red-900">
+                        <div className="">
+                            <input className=""
+                                onChange={handleInputOnChange}
+                                onKeyDown={handleInputKeyDown}
+                                autoFocus={true}
+                                value={tempValue}
+                            />
+                        </div>
+                    </div> :
+                    <>
+                        <div className="" onDoubleClick={handleDivDoubleClick}>
 
-                    <div className="column one wide">npm
-                        <button
-                            className={"ui button circular icon" + (completedState ? " blue" : " green")}
-                            onClick={handleButtonClick}
-                        >
-                            <i className="white check icon"></i>
-                        </button>
-                    </div>
+                            <h2 className={"text-1xl" + (completedState ? " text-green-500" : "")}>{value}</h2>
+                        </div>
 
-                    <div className="column one wide">
-                        <button
-                            onClick={removeTodoItemProp}
-                            className="ui button circular icon red"
-                        >
-                            <i className="white remove icon"></i>
-                        </button>
-                    </div>
-                </>
+
+                        <div className="column one wide">
+                            <button>
+                                <GoTrashcan onClick={removeTodoItemProp}
+                                    className="text-red-500 text-2xl relative top-4 left-8" />
+                                {/* <i className="white remove icon"></i> */}
+                            </button>
+                        </div>
+                    </>
             }
         </div>
     );

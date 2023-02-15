@@ -43,13 +43,13 @@ const App = () => {
                 <Form addTodo={addTodo} />
             </Section>
 
-            <Section>
+            <div>
                 <List
                     editTodoListProp={editTodo}
                     removeTodoListProp={removeTodo}
                     list={todoList}
                 />
-            </Section>
+            </div>
         </div>
     );
 };
