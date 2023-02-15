@@ -67,4 +67,4 @@ This app is aimed to be for testing only and is NOT meant to be deployed to prod
 
 - [@SoffiaSanchezz](https://github.com/SoffiaSanchezz)
 - [@LilyCastillo](https://github.com/lilajoha29).
-- [@Alexis]()
+- [@Alexis](https://github.com/Alexis1326)
